@@ -11,3 +11,4 @@ Day     Language    Command
   3     Rust        rustc 3.rs && ./3 < input.txt
   4     Haskell     ghc 4.hs $$ ./4 < input.txt
   5     TCL         tclsh 5.tcl < input.txt
+  6     c           gcc 6.c && ./a.out < input.txt
