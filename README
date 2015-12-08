@@ -13,3 +13,4 @@ Day     Language    Command
   5     TCL         tclsh 5.tcl < input.txt
   6     c           gcc 6.c && ./a.out < input.txt
   7     OCaml       ocaml str.cma Seven.ml < input.txt
+  8     Lua         lua-5.1 8.lua < input.txt
