@@ -1,5 +1,4 @@
-import std.array,
-       std.conv,
+import std.conv,
        std.stdio,
        std.range,
        std.algorithm;
