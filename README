@@ -5,7 +5,7 @@ These are my solutions to the Advent of Code challenge (adventofcode.com).
 My input is saved as input.txt in each folder.
 
 Day     Language    Command
-========================================================
+==========================================================================
   1     Python      python 1.py < input.txt
   2     Go          go run 1.go < input.txt
   3     Rust        rustc 3.rs && ./3 < input.txt
