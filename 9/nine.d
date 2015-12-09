@@ -1,50 +1,56 @@
 import std.array,
        std.conv,
        std.stdio,
+       std.range,
        std.algorithm;
 
-struct edge {
-    bool visited;
-    int distance;
-}
 
-void graph_insert(ref edge[string][string] graph, string line) {
+void graph_insert(ref int[string][string] graph, ref bool[string] visits, string line) {
     auto parts = line.split();
     auto distance = parse!int(parts[4]);
-    edge e = { distance: distance, visited: false };
-    graph[parts[0]][parts[2]] = e;
-    graph[parts[2]][parts[0]] = e;
+    graph[parts[0]][parts[2]] = distance;
+    graph[parts[2]][parts[0]] = distance;
+    visits[parts[0]] = false;
+    visits[parts[2]] = false;
 }
 
-int shortest_route(edge [string][string] graph) {
-    foreach (city; graph.byKey()) {
-        writeln("At: ", city, " Next: ", graph[city]);
-        recur(graph, city);
-    }
-    return 0;
-}
-
-int recur(edge[string][string] graph, string current) {
-    if (graph[current].keys.count!(a => a.visited) == graph[current].length) {
+int shortest_distance(int[string][string] graph, bool[string] visits, string current) {
+    visits[current] = true;
+    if (visits.byValue.all!()) {
         return 0;
     }
+    return visits.byKeyValue
+        .filter!(a => !a.value)
+        .map!(a => graph[current][a.key] + shortest_distance(graph, visits.dup, a.key))
+        .reduce!((a, b) => a < b ? a : b);
+}
 
-    foreach (city; graph.byKey()) {
-        graph[city]
-            .filter(a => !a.visited)
-            .map(nextCity => graph[city][nextCity] + recur(graph, nextCity))
-            .min();
+int longest_distance(int[string][string] graph, bool[string] visits, string current) {
+    visits[current] = true;
+    if (visits.byValue.all!()) {
+        return 0;
     }
-
+    return visits.byKeyValue
+        .filter!(a => !a.value)
+        .map!(a => graph[current][a.key] + longest_distance(graph, visits.dup, a.key))
+        .reduce!((a, b) => a > b ? a : b);
 }
 
 void main(string[] args)
 {
-    edge[string][string] graph;
+    int[string][string] graph;
+    bool[string] visits;
     stdin
         .byLineCopy()
-        .each!(l => graph_insert(graph, l));
+        .each!(l => graph_insert(graph, visits, l));
 
-    writeln("Graph: ", graph);
-    shortest_route(graph);
+    auto ans1 = visits.byKey
+        .map!(city => shortest_distance(graph, visits.dup, city))
+        .reduce!((a, b) => a < b ? a : b);
+
+    auto ans2 = visits.byKey
+        .map!(city => longest_distance(graph, visits.dup, city))
+        .reduce!((a, b) => a > b ? a : b);
+    writeln("Shortest path: ", ans1);
+    writeln("Longest path:  ", ans2);
 }
