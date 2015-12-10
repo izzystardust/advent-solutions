@@ -15,3 +15,4 @@ Day     Language    Command
   7     OCaml       ocaml str.cma Seven.ml < input.txt
   8     Lua         lua-5.1 8.lua < input.txt
   9     D           dmd nine.d && ./nine < input.txt
+ 10     sh+friends  ./10.sh $INPUT $GENERATIONS
