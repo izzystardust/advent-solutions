@@ -18,3 +18,33 @@ Day     Language    Command
  10     sh+friends  ./10.sh $INPUT $GENERATIONS
  11     perl        perl 11.pl $INPUT
  12     vim         edit the input file, see soln.vim for keys used.
+
+Candidates
+==========================================================================
+
+lisp
+Java
+C++
+C#
+Objective C
+Smalltalk
+Javascript
+Fortran
+Pascal
+COBOL
+Ruby
+Swift
+Erlang
+Elixer
+Scala
+Assembly
+Forth
+Prolog
+Erlang
+Prolog
+Scheme
+Clojure
+J
+Julia
+Eclipse (the langauge)
+Nim
