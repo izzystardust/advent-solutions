@@ -4,23 +4,24 @@ These are my solutions to the Advent of Code challenge (adventofcode.com).
 
 My input is saved as input.txt in each folder.
 
-Day     Language    Command
-==========================================================================
-  1     Python      python 1.py < input.txt
-  2     Go          go run 1.go < input.txt
-  3     Rust        rustc 3.rs && ./3 < input.txt
-  4     Haskell     ghc 4.hs $$ ./4 < input.txt
-  5     TCL         tclsh 5.tcl < input.txt
-  6     c           gcc 6.c && ./a.out < input.txt
-  7     OCaml       ocaml str.cma Seven.ml < input.txt
-  8     Lua         lua-5.1 8.lua < input.txt
-  9     D           dmd nine.d && ./nine < input.txt
- 10     sh+friends  ./10.sh $INPUT $GENERATIONS
- 11     perl        perl 11.pl $INPUT
- 12     vim         edit the input file, see soln.vim for keys used.
+Day     Language        Command
+========================================================================================
+  1     Python          python 1.py < input.txt
+  2     Go              go run 1.go < input.txt
+  3     Rust            rustc 3.rs && ./3 < input.txt
+  4     Haskell         ghc 4.hs $$ ./4 < input.txt
+  5     TCL             tclsh 5.tcl < input.txt
+  6     c               gcc 6.c && ./a.out < input.txt
+  7     OCaml           ocaml str.cma Seven.ml < input.txt
+  8     Lua             lua-5.1 8.lua < input.txt
+  9     D               dmd nine.d && ./nine < input.txt
+ 10     sh+friends      ./10.sh $INPUT $GENERATIONS
+ 11     perl            perl 11.pl $INPUT
+ 12     vim             edit the input file, see soln.vim for keys used.
+ 13     Chicken Scheme  chicken-install combinatorics && csi 13.scm < input.txt
 
 Candidates
-==========================================================================
+========================================================================================
 
 lisp
 Java
@@ -42,7 +43,6 @@ Forth
 Prolog
 Erlang
 Prolog
-Scheme
 Clojure
 J
 Julia
