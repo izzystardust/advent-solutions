@@ -19,32 +19,34 @@ Day     Language        Command
  11     perl            perl 11.pl $INPUT
  12     vim             edit the input file, see soln.vim for keys used.
  13     Chicken Scheme  chicken-install combinatorics && csi 13.scm < input.txt
+ 14     OCaml           ocamlfind ocamlc -package batteries -linkpkg Fourteen.ml -o Fourteen && ./Fourteen < input.txt
 
 Candidates
 ========================================================================================
 
-lisp
-Java
-C++
-C#
-Objective C
-Smalltalk
-Javascript
-Fortran
-Pascal
-COBOL
-Ruby
-Swift
-Erlang
-Elixer
-Scala
 Assembly
-Forth
-Prolog
-Erlang
-Prolog
+C#
+C++
+COBOL
 Clojure
-J
-Julia
+Crystal
 Eclipse (the langauge)
+Elixer
+Erlang
+Erlang
+Forth
+Fortran
+J
+Java
+Javascript
+Julia
+Lisp
 Nim
+Objective C
+Pascal
+Prolog
+Prolog
+Ruby
+Scala
+Smalltalk
+Swift
