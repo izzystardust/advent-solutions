@@ -1,3 +1,5 @@
+open Batteries
+
 type reindeer = { spd: int;
                   dur: int;
                   rst: int; }
@@ -21,9 +23,9 @@ let reindeer_distance duration { spd=speed; dur=flight_time; rst=rest_time } =
   distance duration flight_time rest_time speed
 
 let next_points racers at points =
-  let distances = BatList.map (reindeer_distance at) racers in
-  let m = BatList.max distances in
-  BatList.map2 (fun d p -> if d == m then p + 1 else p) distances points
+  let distances = List.map (reindeer_distance at) racers in
+  let m = List.max distances in
+  List.map2 (fun d p -> if d == m then p + 1 else p) distances points
 
 let points duration racers =
   let rec helper duration racers points =
@@ -31,7 +33,7 @@ let points duration racers =
     then points
     else helper (duration - 1) racers (next_points racers duration points)
   in
-  helper duration racers (BatList.make (BatList.length racers) 0)
+  helper duration racers (List.make (List.length racers) 0)
 
 let parse_line line =
   let line = Str.split (Str.regexp " +") line in
@@ -52,9 +54,9 @@ let main () =
   let race_duration = 2503 in
   let racers = from_stdin [] in
   let distances = List.map (reindeer_distance race_duration) racers in
-  let fastest = BatList.max distances in
+  let fastest = List.max distances in
   let points = points race_duration racers in
-  let pointiest = BatList.max points in
+  let pointiest = List.max points in
   print_string ("Furthest:  " ^ (string_of_int fastest) ^ "\n");
   print_string ("Pointiest: " ^ (string_of_int pointiest) ^ "\n")
 
